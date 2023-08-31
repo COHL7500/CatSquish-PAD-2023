@@ -17,6 +17,10 @@ let e2 = Mul(CstI 2, e1)
 
 let e3 = Add(Add(Var "x", Var "y"), Add(Var "z", Var "v"))
 
+let e4 = Add(Var "x", CstI 0)
+
+let e5 = Mul(Add(CstI 1, CstI 0), Add(Var "x", CstI 0))
+
 let rec fmt a : string =
   match a with
   | CstI a -> string a  
@@ -27,7 +31,28 @@ let rec fmt a : string =
   
 (* Evaluation within an environment *)
 
-
+let rec simplify a : aexpr =
+  match a with
+  | Add (a1, a2) ->
+    match simplify a1, simplify a2 with
+    | CstI 0, a2 -> a2
+    | a1, CstI 0 -> a1
+    | _ -> Add(a1, a2)
+  | Sub (a1, a2) ->
+    match simplify a1, simplify a2 with
+    | a1, CstI 0 -> a1
+    | a1, a2 when a1 = a2 -> CstI 0
+    | _ -> Sub(a1, a2)
+  | Mul (a1, a2) ->
+    match simplify a1, simplify a2 with
+    | CstI 1, a2 -> a2
+    | a1, CstI 1 -> a1
+    | CstI 0, a2 -> a2
+    | a1, CstI 0 -> a1
+    | _ -> Mul(a1, a2)
+  | _ -> a
+    
+simplify e5
 
 (*eval e1 env;;
 eval e2 env;;
