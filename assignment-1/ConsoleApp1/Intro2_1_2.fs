@@ -11,7 +11,20 @@ type aexpr =
   | Mul of aexpr * aexpr
   | Sub of aexpr * aexpr
 
+let e1 = Sub(Var "v", Add(Var "w", Var "z"))
 
+let e2 = Mul(CstI 2, e1)
+
+let e3 = Add(Add(Var "x", Var "y"), Add(Var "z", Var "v"))
+
+let rec fmt a : string =
+  match a with
+  | CstI a -> string a  
+  | Var x -> x
+  | Add(a1, a2) -> sprintf "(%s + %s)" (fmt a1) (fmt a2)
+  | Mul(a1, a2) -> sprintf "(%s * %s)" (fmt a1) (fmt a2)
+  | Sub(a1, a2) -> sprintf "(%s - %s)" (fmt a1) (fmt a2)
+  
 (* Evaluation within an environment *)
 
 
