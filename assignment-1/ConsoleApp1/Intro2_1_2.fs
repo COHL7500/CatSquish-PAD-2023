@@ -1,7 +1,5 @@
 module ConsoleApp1.Intro2_1_2
 
-open ConsoleApp1.env
-
 (* Object language expressions with variables *)
   
 type aexpr =
@@ -20,6 +18,8 @@ let e3 = Add(Add(Var "x", Var "y"), Add(Var "z", Var "v"))
 let e4 = Add(Var "x", CstI 0)
 
 let e5 = Mul(Add(CstI 1, CstI 0), Add(Var "x", CstI 0))
+
+let e6 = Add(Mul(CstI 5, Var "x"), CstI 2)
 
 let rec fmt a : string =
   match a with
@@ -51,8 +51,17 @@ let rec simplify a : aexpr =
     | a1, CstI 0 -> a1
     | _ -> Mul(a1, a2)
   | _ -> a
-    
+  
+let rec diff a : aexpr =
+  match a with
+  | CstI _ -> CstI 0
+  | Var _ -> CstI 1
+  | Add (a1, a2) -> simplify (Add(diff a1, diff a2))
+  | Mul (a1, a2) -> simplify (Mul(a1, diff a2))
+  | Sub (a1, a2) -> simplify (Sub(diff a1, diff a2))
+  
 simplify e5
+diff e6
 
 (*eval e1 env;;
 eval e2 env;;
