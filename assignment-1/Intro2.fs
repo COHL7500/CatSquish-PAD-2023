@@ -49,6 +49,6 @@ let e1v  = eval e1 env;;
 let e2v1 = eval e2 env;;
 let e2v2 = eval e2 [("a", 314)];;
 let e3v  = eval e3 env;;
-let e4v1 = Prim("max", eval e1 env, eval e2 env)
-let e4v2 = Prim("min", eval e1 env, eval e2 env)
-let e4v3 = Prim("==", eval e1 env, eval e2 env)
+let e4v1 = Prim("max", e1v, e2v1)
+let e4v2 = Prim("min", e1v, e2v1)
+let e4v3 = Prim("==", e1v, e2v1)
