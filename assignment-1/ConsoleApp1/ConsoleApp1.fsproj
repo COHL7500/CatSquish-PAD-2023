@@ -9,6 +9,7 @@
         <Compile Include="env.fs" />
         <Compile Include="Intro2_1_1.fs" />
         <Compile Include="Intro2_1_2.fs" />
+        <Compile Include="Intro2_1_3.fs" />
         <Compile Include="Intro1.fs" />
         <Compile Include="Appendix.fs" />
         <Content Include="SimpleExpr.java" />
