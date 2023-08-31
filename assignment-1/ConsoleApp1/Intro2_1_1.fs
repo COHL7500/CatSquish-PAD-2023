@@ -1,16 +1,6 @@
-module ConsoleApp1.Intro2
+module ConsoleApp1.Intro2_1_1
 
-let env = [("a", 3); ("c", 78); ("baf", 666); ("b", 111)];;
-
-let emptyenv = []; (* the empty environment *)
-
-let rec lookup env x =
-    match env with 
-    | []        -> failwith (x + " not found")
-    | (y, v)::r -> if x=y then v else lookup r x;;
-
-let cvalue = lookup env "c";;
-
+open ConsoleApp1.env
 
 (* Object language expressions with variables *)
 
