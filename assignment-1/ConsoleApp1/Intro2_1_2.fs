@@ -1,7 +1,7 @@
 module ConsoleApp1.Intro2_1_2
 
 (* Object language expressions with variables *)
-  
+
 type aexpr =
   | CstI of int
   | Var of string
