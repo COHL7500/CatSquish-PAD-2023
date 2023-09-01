@@ -92,67 +92,6 @@
                 }
             }
 
-            Expr simplify(Expr e)
-            {
-                switch (e)
-                {
-                    case Add add:
-                        var simpExpAdd1 = simplify(add.e1);
-                        var simpExpAdd2 = simplify(add.e2);
-
-                        if (simpExpAdd1 is CstI ca1 && ca1.ConstantInt == 0)
-                        {
-                            return simpExpAdd2; 
-                        } else if (simpExpAdd2 is CstI ca2 && ca2.ConstantInt == 0)
-                        {
-                            return simpExpAdd1;
-                        } else
-                        {
-                            return new Add(simpExpAdd1, simpExpAdd2); 
-                        }
-                    case Sub sub:
-                        var simpExpSub1 = simplify(sub.e1);
-                        var simpExpSub2 = simplify(sub.e2);
-
-                        if (simpExpSub2 is CstI cs2 && cs2.ConstantInt == 0)
-                        {
-                            return simpExpSub1;
-                        } else if (simpExpSub1 == simpExpSub2)
-                        {
-                            return new CstI(0);
-                        } else
-                        {
-                            return new Sub(simpExpSub1, simpExpSub2);
-                        }
-                    case Mul mul:
-                        var simpExpMul1 = simplify(mul.e1);
-                        var simpExpMul2 = simplify(mul.e2);
-                        
-                        if (simpExpMul1 is CstI cm1 && cm1.ConstantInt == 1)
-                        {
-                            return simpExpMul2;
-                        }
-                        else if (simpExpMul2 is CstI cm2 && cm2.ConstantInt == 1)
-                        {
-                            return simpExpMul1;
-                        }
-                        else if (simpExpMul1 is CstI cm3 && cm3.ConstantInt == 0)
-                        {
-                            return simpExpMul1;
-                        }
-                        else if (simpExpMul2 is CstI cm4 && cm4.ConstantInt == 0)
-                        {
-                            return simpExpMul2;
-                        }
-                        else
-                        {
-                            return new Mul(simpExpMul1, simpExpMul2);
-                        }
-                    default:
-                        return e;
-                }
-            }
-
             Expr diff(Expr e)
             {
                 switch (e)
@@ -177,13 +116,79 @@
                         throw new ArgumentException("Unknown expression type");
                 }
             }
-            
+
             Console.WriteLine(fmt(e1));
             Console.WriteLine(fmt(e2));
             Console.WriteLine(fmt(e3));
             Console.WriteLine(fmt(e4));
             Console.WriteLine(fmt(simplify(e5)));
             Console.WriteLine(fmt(diff(e6)));
+
+            Expr simplify(Expr e)
+            {
+                switch (e)
+                {
+                    case Add add:
+                        var simpExpAdd1 = simplify(add.e1);
+                        var simpExpAdd2 = simplify(add.e2);
+
+                        if (simpExpAdd1 is CstI ca1 && ca1.ConstantInt == 0)
+                        {
+                            return simpExpAdd2;
+                        }
+
+                        if (simpExpAdd2 is CstI ca2 && ca2.ConstantInt == 0)
+                        {
+                            return simpExpAdd1;
+                        }
+                        else
+                        {
+                            return new Add(simpExpAdd1, simpExpAdd2);
+                        }
+                    case Sub sub:
+                        var simpExpSub1 = simplify(sub.e1);
+                        var simpExpSub2 = simplify(sub.e2);
+
+                        if (simpExpSub2 is CstI cs2 && cs2.ConstantInt == 0)
+                        {
+                            return simpExpSub1;
+                        }
+                        else if (simpExpSub1 == simpExpSub2)
+                        {
+                            return new CstI(0);
+                        }
+                        else
+                        {
+                            return new Sub(simpExpSub1, simpExpSub2);
+                        }
+                    case Mul mul:
+                        var simpExpMul1 = simplify(mul.e1);
+                        var simpExpMul2 = simplify(mul.e2);
+
+                        if (simpExpMul1 is CstI cm1 && cm1.ConstantInt == 1)
+                        {
+                            return simpExpMul2;
+                        }
+                        else if (simpExpMul2 is CstI cm2 && cm2.ConstantInt == 1)
+                        {
+                            return simpExpMul1;
+                        }
+                        else if (simpExpMul1 is CstI cm3 && cm3.ConstantInt == 0)
+                        {
+                            return simpExpMul1;
+                        }
+                        else if (simpExpMul2 is CstI cm4 && cm4.ConstantInt == 0)
+                        {
+                            return simpExpMul2;
+                        }
+                        else
+                        {
+                            return new Mul(simpExpMul1, simpExpMul2);
+                        }
+                    default:
+                        return e;
+                }
+            }
         }
     }
 }
