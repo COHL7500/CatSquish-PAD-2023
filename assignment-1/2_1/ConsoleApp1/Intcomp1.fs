@@ -117,9 +117,12 @@ let rec nsubst (e : expr) (env : (string * expr) list) : expr =
     match e with
     | CstI i -> e
     | Var x  -> lookOrSelf env x
-    | Let(x, erhs, ebody) ->
-      let newenv = remove env x
-      Let(x, nsubst erhs env, nsubst ebody newenv)
+    | Let(lst, ebody) ->
+      match lst with
+      | x :: l ->
+          let newenv = remove env (fst x)
+          Let([(fst x, nsubst (snd x) env)], nsubst (Let (l, ebody)) newenv)
+      | [] -> Let([], nsubst ebody env)
     | Prim(ope, e1, e2) -> Prim(ope, nsubst e1 env, nsubst e2 env)
 
 (* Some expressions with free variables: *)
@@ -133,8 +136,7 @@ let e6s2 = nsubst e6 [("z", Prim("-", CstI 5, CstI 4))];;
 let e6s3 = nsubst e6 [("z", Prim("+", Var "z", Var "z"))];;
 
 // Shows that only z outside the Let gets substituted:
-let e7 = Prim("+", Let("z", CstI 22, Prim("*", CstI 5, Var "z")),
-                   Var "z");;
+let e7 = Prim("+", Let([("z", CstI 22)], Prim("*", CstI 5, Var "z")), Var "z");;
 
 let e7s1 = nsubst e7 [("z", CstI 100)];;
 
@@ -214,8 +216,8 @@ let rec freevars e : string list =
     match e with
     | CstI i -> []
     | Var x  -> [x]
-    | Let(x, erhs, ebody) -> 
-          union (freevars erhs, minus (freevars ebody, [x]))
+    | Let(x :: lst, ebody) -> 
+          union (freevars (snd x), minus (freevars ebody, [(fst x)]))
     | Prim(ope, e1, e2) -> union (freevars e1, freevars e2);;
 
 (* Alternative definition of closed *)
