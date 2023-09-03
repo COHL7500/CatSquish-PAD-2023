@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # 
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.fsproj", "{30AE8076-AAF7-4522-B2C0-937765A3BFF3}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Exercise_1.1-1.2", "Exercise_1.1-1.2\Exercise_1.1-1.2.fsproj", "{30AE8076-AAF7-4522-B2C0-937765A3BFF3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2_1", "2_1", "{FEAD4CD6-BA10-4F36-8F05-86FAA5396F17}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exercise_2.1-2.3", "Exercise_2.1-2.3", "{FEAD4CD6-BA10-4F36-8F05-86FAA5396F17}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ConsoleApp1", "2_1\ConsoleApp1\ConsoleApp1.fsproj", "{FEA22976-AD19-4DB3-9345-DBB10FE791D7}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ConsoleApp1", "Exercise_2.1-2.3\ConsoleApp1\ConsoleApp1.fsproj", "{FEA22976-AD19-4DB3-9345-DBB10FE791D7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exercise_1.4", "Exercise_1.4", "{8DCB34BF-E004-401D-91CD-F7BF15D7A297}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "Exercise_1.4\ConsoleApp1\ConsoleApp1.csproj", "{7BC9FF66-8BFC-4002-B524-09F331D8A11E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,8 +25,13 @@ Global
 		{FEA22976-AD19-4DB3-9345-DBB10FE791D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FEA22976-AD19-4DB3-9345-DBB10FE791D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FEA22976-AD19-4DB3-9345-DBB10FE791D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BC9FF66-8BFC-4002-B524-09F331D8A11E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BC9FF66-8BFC-4002-B524-09F331D8A11E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BC9FF66-8BFC-4002-B524-09F331D8A11E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BC9FF66-8BFC-4002-B524-09F331D8A11E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{FEA22976-AD19-4DB3-9345-DBB10FE791D7} = {FEAD4CD6-BA10-4F36-8F05-86FAA5396F17}
+		{7BC9FF66-8BFC-4002-B524-09F331D8A11E} = {8DCB34BF-E004-401D-91CD-F7BF15D7A297}
 	EndGlobalSection
 EndGlobal

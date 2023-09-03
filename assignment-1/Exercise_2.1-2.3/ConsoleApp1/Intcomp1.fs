@@ -10,7 +10,7 @@ module ConsoleApp1.Intcomp1
 type expr = 
   | CstI of int
   | Var of string
-  | Let of (string * expr) list * expr
+  | Let of (string * expr) list * expr  // 2.1 (i)
   | Prim of string * expr * expr;;
 
 (* Some closed expressions: *)
@@ -48,7 +48,7 @@ let rec eval e (env : (string * int) list) : int =
     match e with
     | CstI i            -> i
     | Var x             -> lookup env x 
-    | Let(lst, ebody) ->
+    | Let(lst, ebody) ->    // 2.1 (ii)
       match lst with
       | x :: l -> 
         let xval = eval (snd x) env
@@ -117,7 +117,7 @@ let rec nsubst (e : expr) (env : (string * expr) list) : expr =
     match e with
     | CstI i -> e
     | Var x  -> lookOrSelf env x
-    | Let(lst, ebody) ->
+    | Let(lst, ebody) ->        // 2.2
       match lst with
       | x :: l ->
           let newenv = remove env (fst x)
@@ -212,7 +212,7 @@ let rec minus (xs, ys) =
 
 (* Find all variables that occur free in expression e *)
 
-let rec freevars e : string list =
+let rec freevars e : string list =  // 2.2
     match e with
     | CstI i -> []
     | Var x  -> [x]
@@ -252,7 +252,7 @@ let rec tcomp (e : expr) (cenv : string list) : texpr =
     match e with
     | CstI i -> TCstI i
     | Var x  -> TVar (getindex cenv x)
-    | Let(lst, ebody) ->
+    | Let(lst, ebody) -> // 2.3
       match lst with
       | x :: rest ->
           let cenv1 = (fst x) :: cenv
@@ -277,6 +277,8 @@ let rec teval (e : texpr) (renv : int list) : int =
     | TPrim _            -> failwith "unknown primitive";;
 
 (* Correctness: eval e []  equals  teval (tcomp e []) [] *)
+
+let e11 = teval (tcomp e6 ["y";"z"]) [1;2] // 2.3
 
 
 (* ---------------------------------------------------------------------- *)
