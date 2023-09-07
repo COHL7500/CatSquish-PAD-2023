@@ -7,8 +7,6 @@ module Exercise_2._4_2._5.IntComp1
 
 (* Object language expressions with variable bindings and nested scope *)
 
-module Intcomp1
-
 type expr = 
   | CstI of int
   | Var of string
