@@ -1,19 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 #
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Exercise_1.1-1.2", "Exercise_1.1-1.2\Exercise_1.1-1.2.fsproj", "{30AE8076-AAF7-4522-B2C0-937765A3BFF3}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Exercise_1.1-1.2", "assignment-1\Exercise_1.1-1.2\Exercise_1.1-1.2.fsproj", "{30AE8076-AAF7-4522-B2C0-937765A3BFF3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exercise_2.1-2.3", "Exercise_2.1-2.3", "{FEAD4CD6-BA10-4F36-8F05-86FAA5396F17}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exercise_2.1-2.3", "assignment-1\Exercise_2.1-2.3", "{FEAD4CD6-BA10-4F36-8F05-86FAA5396F17}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ConsoleApp1", "Exercise_2.1-2.3\ConsoleApp1\ConsoleApp1.fsproj", "{FEA22976-AD19-4DB3-9345-DBB10FE791D7}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ConsoleApp1", "assignment-1\Exercise_2.1-2.3\ConsoleApp1\ConsoleApp1.fsproj", "{FEA22976-AD19-4DB3-9345-DBB10FE791D7}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exercise_1.4", "Exercise_1.4", "{8DCB34BF-E004-401D-91CD-F7BF15D7A297}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exercise_1.4", "assignment-1\Exercise_1.4", "{8DCB34BF-E004-401D-91CD-F7BF15D7A297}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "Exercise_1.4\ConsoleApp1\ConsoleApp1.csproj", "{7BC9FF66-8BFC-4002-B524-09F331D8A11E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "assignment-1\Exercise_1.4\ConsoleApp1\ConsoleApp1.csproj", "{7BC9FF66-8BFC-4002-B524-09F331D8A11E}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Exercise_2.4-2.5", "Exercise_2.4-2.5\Exercise_2.4-2.5.fsproj", "{45ED7168-0E5E-454F-8CC0-F99936DF3EA3}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Exercise_2.4-2.5", "assignment-2\Exercise_2.4-2.5\Exercise_2.4-2.5.fsproj", "{45ED7168-0E5E-454F-8CC0-F99936DF3EA3}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Exercise_HelloLex", "Exercise_HelloLex\Exercise_HelloLex.fsproj", "{A6EB0B41-E8D3-4963-A7C9-C203AC78F575}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Exercise_HelloLex", "assigment-2\Exercise_HelloLex\Exercise_HelloLex.fsproj", "{A6EB0B41-E8D3-4963-A7C9-C203AC78F575}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
