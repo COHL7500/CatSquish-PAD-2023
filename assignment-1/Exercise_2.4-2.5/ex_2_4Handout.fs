@@ -1,6 +1,13 @@
 module Exercise_2._4_2._5.ex_2_4Handout
 
- open Exercise_2._4_2._5.IntComp1
+ type sinstr =
+  | SCstI of int                        (* push integer           *)
+  | SVar of int                         (* push variable from env *)
+  | SAdd                                (* pop args, push sum     *)
+  | SSub                                (* pop args, push diff.   *)
+  | SMul                                (* pop args, push product *)
+  | SPop                                (* pop value/unbind var   *)
+  | SSwap;;                             (* exchange top and next  *)
 
 
 (* Ex 2.4 - assemble to integers *)
@@ -20,6 +27,6 @@ module Exercise_2._4_2._5.ex_2_4Handout
 
 (* Output the integers in list inss to the text file called fname: *)
 
-let intsToFile (inss : int list) (fname : string) = 
+ let intsToFile (inss : int list) (fname : string) = 
     let text = String.concat " " (List.map string inss)
     System.IO.File.WriteAllText(fname, text);;
