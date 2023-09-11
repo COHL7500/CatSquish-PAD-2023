@@ -6,8 +6,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="Program.fs"/>
+        <Compile Include="hello2.fsl" />
         <Compile Include="hello.fsl" />
+        <Compile Include="hello3.fsl" />
     </ItemGroup>
 
 </Project>

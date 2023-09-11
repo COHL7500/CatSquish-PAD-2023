@@ -10,6 +10,8 @@
         <Compile Include="Intcomp1.fs" />
         <Compile Include="Program.fs"/>
         <Content Include="Machine.java" />
+        <Compile Include="ex_2_4Handout.fs" />
+        <Content Include="ins1.txt" />
     </ItemGroup>
 
 </Project>
