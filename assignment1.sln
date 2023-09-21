@@ -17,6 +17,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Exercise_HelloLex", "assigm
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Exercise_3.6-3.7", "assignment-3\Exercise_3.6-3.7\Exercise_3.6-3.7.fsproj", "{8F97B5A8-4A19-4081-9B19-9F1E5930BEB1}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "assignment-4", "assignment-4\assignment-4.fsproj", "{293BDF0D-5DCD-4D91-BC8F-53BC9C86BF4B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{8F97B5A8-4A19-4081-9B19-9F1E5930BEB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F97B5A8-4A19-4081-9B19-9F1E5930BEB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F97B5A8-4A19-4081-9B19-9F1E5930BEB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{293BDF0D-5DCD-4D91-BC8F-53BC9C86BF4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{293BDF0D-5DCD-4D91-BC8F-53BC9C86BF4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{293BDF0D-5DCD-4D91-BC8F-53BC9C86BF4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{293BDF0D-5DCD-4D91-BC8F-53BC9C86BF4B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{FEA22976-AD19-4DB3-9345-DBB10FE791D7} = {FEAD4CD6-BA10-4F36-8F05-86FAA5396F17}
