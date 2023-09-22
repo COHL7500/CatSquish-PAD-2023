@@ -17,7 +17,7 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Exercise_HelloLex", "assigm
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Exercise_3.6-3.7", "assignment-3\Exercise_3.6-3.7\Exercise_3.6-3.7.fsproj", "{8F97B5A8-4A19-4081-9B19-9F1E5930BEB1}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "assignment-4", "assignment-4\assignment-4.fsproj", "{293BDF0D-5DCD-4D91-BC8F-53BC9C86BF4B}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Exercise_4.2-4.5", "assignment-4\Exercise_4.2-4.5\Exercise_4.2-4.5.fsproj", "{293BDF0D-5DCD-4D91-BC8F-53BC9C86BF4B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
