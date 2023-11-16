@@ -81,7 +81,7 @@ typedef unsigned int word;
 
 word* heap;
 word* afterHeap;
-word* freelist;
+word *freelist;
 
 // These numeric instruction codes must agree with ListC/Machine.fs:
 // (Use #define because const int does not define a constant in C)
@@ -172,9 +172,7 @@ void printStackAndPc(int s[], int bp, int sp, int p[], int pc) {
     else
       printf("#%d ", s[i]);      
   printf("]");
-  printf("{%d:", pc);
-  printInstruction(p, pc);
-  printf("}\n");
+  printf("{%d:", pc); printInstruction(p, pc); printf("}\n"); 
 }
 
 // Read instructions from a file, return array of instructions
@@ -399,7 +397,7 @@ void heapStatistics() {
 }
 
 void initheap() {
-  heap = (word*) malloc(sizeof(word)*HEAPSIZE);
+  heap = (word*)malloc(sizeof(word)*HEAPSIZE);
   afterHeap = &heap[HEAPSIZE];
   // Initially, entire heap is one block on the freelist:
   heap[0] = mkheader(0, HEAPSIZE-1, Blue);
@@ -422,9 +420,11 @@ void markPhase(int s[], int sp) {
 // sweep phase - Scans entire heap, paints black blocks white and white blocks blue
 //               and then creates a linked list of all blue blocks with a reference
 //               to the start of the linked list to freelist variable.
+//               This method also joins together adjecent dead blocks into a single
+//               dead block.
 void sweepPhase() {
   word *first, *next, *prev = 0;
-  
+
   // Loops through the entire heap
   for (word* heapPtr = heap; heapPtr < afterHeap; heapPtr = next) {
     next = heapPtr + Length(heapPtr[0]) + 1; // reference to the next block
@@ -433,10 +433,17 @@ void sweepPhase() {
     if (Color(heapPtr[0]) == Black)
       mark(heapPtr, White);
 
-    // If this block is white, paint it blue and link it together with the previous
+    // If this block is white, paint it blue and join it with adjecent blocks
     else if (Color(heapPtr[0]) == White){
       mark(heapPtr, Blue);
       heapPtr[1] = 0; // reference to the next block, default 0 as existence is yet unknown
+
+      // Gets a reference to the next reachable adjecent white block on the heap
+      // when one the is found, join them together an continue to the next one
+      while (next < afterHeap && Color(next[0]) == White) {
+        heapPtr[0] = mkheader(0, Length(heapPtr[0]) + Length(next[0]) + 1, Blue);
+        next += Length(next[0]) + 1;
+      }
 
       // If the current block is not first in the linked list,
       // provide the previous block a reference to this one
