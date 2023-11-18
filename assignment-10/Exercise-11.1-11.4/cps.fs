@@ -44,13 +44,15 @@ let rec prodc xs f =
     | x::xr -> prodc xr (fun v -> f (x*v));;
 
 // 11.4
-let rec prodz xs f =
-    match xs with
-    | [] -> f 1
-    | x::xr ->
-        match x with
-        | 0 -> f 0
-        | _ -> prodc xr (fun v -> f (x*v));;
+let prodz xs f =
+    let rec inner xs2 f2 =
+        match xs2 with
+        | [] -> f 1
+        | x::xr ->
+            match x with
+            | 0 -> f 0
+            | _ -> prodc xr (fun v -> f2 (x*v))
+    inner xs f;;
 
 let rec prodi xs acc =
     match xs with
