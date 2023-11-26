@@ -23,15 +23,15 @@ let nl = CstI 10
 
 %right ASSIGN             /* lowest precedence */
 %left QUESTION COLON
-%nonassoc PRINT
+%left PRINT
 %left SEQOR
 %left SEQAND
 %left EQ NE 
-%nonassoc GT LT GE LE
+%left GT LT GE LE
 %left PLUS MINUS
 %left TIMES DIV MOD
-%nonassoc NOT AMP 
-%nonassoc LBRACK          /* highest precedence  */
+%left NOT AMP 
+%left LBRACK          /* highest precedence  */
 
 %start Main
 %type <Absyn.program> Main 
